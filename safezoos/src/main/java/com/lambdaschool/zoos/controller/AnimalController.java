@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping(value = "/animals")
 public class AnimalController
@@ -34,8 +37,9 @@ public class AnimalController
         return new ResponseEntity<>(a, HttpStatus.OK);
     }
 
-//    @GetMapping("/count")
-//    public ResponseEntity<?> getAnimalCount(){
-//
-//    }
+    @GetMapping("/count")
+    public ResponseEntity<?> getAnimalCount(){
+        List<Animal> list=animalService.listAnimalsByCount();
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
 }

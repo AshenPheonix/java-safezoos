@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service(value = "animalService")
 public class AnimalServiceImpl implements AnimalService
@@ -32,5 +33,10 @@ public class AnimalServiceImpl implements AnimalService
             throw new EntityNotFoundException("Animal " + type + " not found!");
         }
         return animal;
+    }
+
+    @Override
+    public List<Animal> listAnimalsByCount() {
+        return animalrepos.animalsByCount();
     }
 }
