@@ -2,6 +2,7 @@ package com.lambdaschool.zoos.controller;
 
 import com.lambdaschool.zoos.model.Animal;
 import com.lambdaschool.zoos.service.AnimalService;
+import com.lambdaschool.zoos.view.AnimalCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class AnimalController
 
     @GetMapping("/count")
     public ResponseEntity<?> getAnimalCount(){
-        List<Animal> list=animalService.listAnimalsByCount();
+        List<AnimalCount> list=animalService.listAnimalsByCount();
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 }
